@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+editor="vim"
+
+today_day=$( date +'%d/%m/%Y' )
+
+header="#!/usr/bin/env bash
+# --------------------------------
+# Script     : 
+# Description: 
+# Version    : 0.1
+# Author     : Ireras F. <ferreirasdemelo@gmail.com> 
+# Date       : $today_day
+# License   : GNU/GPL v3.0
+# --------------------------------
+# Use: 
+# --------------------------------
+
+"
+[[ $# -ne 1 ]] && echo "Enter only one parameter." && exit 1
+
+[[ -f $1 ]] && echo "File already exists." && exit 1
+
+echo "$header" > $1
+chmod +x $1
+$editor $1
+
+exit 0

@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# --------------------------------
+# Script     : javac 
+# Description: it's a script to organize a java project by CLI 
+# Version    : 0.1
+# Author     : Ireras F. <ferreirasdemelo@gmail.com> 
+# Date       : 16/08/2025
+# License    : GNU/GPL v3.0
+# --------------------------------
+# Use: 
+# --------------------------------
+
+editor=vim
+main_class="""
+public class Main {\n
+\tpublic static void main(String[] args){\n
+\t	\n
+\t}\n}
+
+"""
+
+[[ $# -gt 2 ]] && echo "Enter a maximum of 2 parameters." && exit 1
+
+[[ $# -eq 1 ]] && [[ -d $1 ]] && echo "Directory already exists." && exit 1
+[[ $# -eq 2 ]] && [[ -d $2 ]] && echo "Directory already exists." && exit 1
+
+[[ $1 == "-g" ]] && mkdir $2 && cd $2 && git init && mkdir ./bin && mkdir ./lib && mkdir ./src && cd ./src && echo -e $main_class >> Main.java && cd .. && $editor ./src/Main.java && echo $2 was created! && exit 0
+
+mkdir $1 && cd $1 && mkdir ./bin && mkdir ./lib && mkdir ./src && cd ./src && echo -e $main_class >> Main.java && cd .. && $editor ./src/Main.java && echo $1 was created! && exit 0

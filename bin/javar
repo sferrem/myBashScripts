@@ -10,9 +10,6 @@
 # Use: javar 
 # --------------------------------
 
-
-#[[ $# -ne 0 ]] && echo "Parameters are not required." && exit 1
-
 [[ ! -f Main.java ]] && [[ ! -d src ]]  && echo "File Main.java doesn't exist and a src directory was not found." && exit 1
 
 [[ -d src ]] && cd src && javac -d ../bin *.java && echo "Compiled!" && clear && cd ..  && java -cp "bin:lib/*" Main "$@" && exit 0

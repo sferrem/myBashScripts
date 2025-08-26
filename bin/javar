@@ -17,10 +17,3 @@
 
 [[ -d src ]] && cd src && javac -d ../bin *.java && echo "Compiled!" && clear && cd ..  && java -cp "bin:lib/*" Main "$@" && exit 0
 [[ -f Main.java ]] && clear && javac -d ../bin *.java && echo "Compiled!" && clear && cd .. && java -Dfile.encoding=UTF-8 -cp "bin:lib/*" Main "$@" && exit 0
-
-#[[ -d src ]] && cd src && clear &&  find . -name "*.java" > sources.txt && javac -d ../bin -cp "lib/*" @sources.txt && echo "Compiled!" && clear && cd ..  && java -cp "bin:lib/*" Main && exit 0
-
-#javac -d ../bin -cp "../lib/*" Main.java && cd .. && cd ./bin && java Main && exit 0
-#javac Main.java && mv Main.class .. && cd .. && [[ -d bin ]] && mv Main.class ./bin && cd ./bin && java Main && exit 0
-
-#[[ ! -d bin ]] && mkdir ./bin && mv Main.class ./bin && cd ./bin && java Main && exit 0
